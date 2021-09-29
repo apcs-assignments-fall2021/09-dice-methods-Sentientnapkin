@@ -11,30 +11,31 @@ public class MyMain {
     // For example, 75.5% would be 75.5
     public static double probabilityOneSix() {
         boolean isSix = false;
-        double correct = 0;
+        double correct = 0.0;
         int dice = 0;
         for (int i = 0; i < 10000; i++) {
-            for(int j = 0;j<=6;j++){
+            for(int j = 0;j<6;j++){
                 dice = rollDie();
                 if(dice==6)
                     isSix = true;
             }
             if (isSix)
                 correct++;
+            isSix = false;
         }
 
-        return correct/10000;
+        return 100*(correct/10000);
     }
 
     // Calculate the probability of rolling at least two 6's when rolling 
     // twelve dice. Uses 10000 trials.
     public static double probabilityTwoSixes() {
         boolean isSix = false;
-        double correct = 0;
+        double correct = 0.0;
         int dice = 0;
         int count = 0;
         for (int i = 0; i < 10000; i++) {
-            for(int j = 0;j<=12;j++){
+            for(int j = 0;j<12;j++){
                 dice = rollDie();
                 if(dice==6)
                     count++;
@@ -44,20 +45,21 @@ public class MyMain {
             count = 0;
             if (isSix)
                 correct++;
+            isSix = false;
         }
 
-        return correct/10000;
+        return 100*(correct/10000);
     }
 
     // Calculate the probability of rolling at least three 6's when rolling
     // eighteen dice. Uses 10000 trials.
     public static double probabilityThreeSixes() {
         boolean isSix = false;
-        double correct = 0;
+        double correct = 0.0;
         int dice = 0;
         int count = 0;
         for (int i = 0; i < 10000; i++) {
-            for(int j = 0;j<=18;j++){
+            for(int j = 0;j<18;j++){
                 dice = rollDie();
                 if(dice==6)
                     count++;
@@ -67,9 +69,10 @@ public class MyMain {
             count = 0;
             if (isSix)
                 correct++;
+            isSix = false;
         }
 
-        return correct/10000;
+        return 100*(correct/10000);
     }
 
     public static void main(String[] args) {
