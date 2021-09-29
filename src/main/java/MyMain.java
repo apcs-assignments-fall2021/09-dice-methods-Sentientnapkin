@@ -2,8 +2,7 @@ public class MyMain {
     // Rolls a single die
     // Returns a random integer between 1 and 6
     public static int rollDie() {
-        // REPLACE YOUR CODE HERE
-        return -1;
+        return (int)((Math.random()*6)+1);
     }
 
     // Calculate the probability of rolling at least one 6 when rolling 
@@ -11,32 +10,71 @@ public class MyMain {
     // Returns in the answer as a double corresponding to the percentage
     // For example, 75.5% would be 75.5
     public static double probabilityOneSix() {
-        // REPLACE WITH YOUR CODE HERE
-
-        // Your code should roll 6 dice 10,000 times, so you should have a
-        // for loop such as:
+        boolean isSix = false;
+        double correct = 0;
+        int dice = 0;
         for (int i = 0; i < 10000; i++) {
-
+            for(int j = 0;j<=6;j++){
+                dice = rollDie();
+                if(dice==6)
+                    isSix = true;
+            }
+            if (isSix)
+                correct++;
         }
 
-        return -1.0;
+        return correct/10000;
     }
 
     // Calculate the probability of rolling at least two 6's when rolling 
     // twelve dice. Uses 10000 trials.
     public static double probabilityTwoSixes() {
-        // REPLACE WITH YOUR CODE HERE
-        return -1.0;
+        boolean isSix = false;
+        double correct = 0;
+        int dice = 0;
+        int count = 0;
+        for (int i = 0; i < 10000; i++) {
+            for(int j = 0;j<=12;j++){
+                dice = rollDie();
+                if(dice==6)
+                    count++;
+                if(count==2)
+                    isSix = true;
+            }
+            count = 0;
+            if (isSix)
+                correct++;
+        }
+
+        return correct/10000;
     }
 
     // Calculate the probability of rolling at least three 6's when rolling
     // eighteen dice. Uses 10000 trials.
     public static double probabilityThreeSixes() {
-        // REPLACE WITH YOUR CODE HERE
-        return -1.0;
+        boolean isSix = false;
+        double correct = 0;
+        int dice = 0;
+        int count = 0;
+        for (int i = 0; i < 10000; i++) {
+            for(int j = 0;j<=18;j++){
+                dice = rollDie();
+                if(dice==6)
+                    count++;
+                if(count==3)
+                    isSix = true;
+            }
+            count = 0;
+            if (isSix)
+                correct++;
+        }
+
+        return correct/10000;
     }
 
     public static void main(String[] args) {
-        // YOUR CODE HERE
+        System.out.println(probabilityOneSix());
+        System.out.println(probabilityTwoSixes());
+        System.out.println(probabilityThreeSixes());
     }
 }
